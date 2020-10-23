@@ -24,7 +24,7 @@ public class Demo{
     }
     return a + "}";
   }
-  public static String arrDeepToString(int[][] arr){
+  public static String arrayDeepToString(int[][] arr){
     String a = "{";
     for(int i = 0; i < arr.length; i ++){
       if (i < arr.length - 1) a += arrToString(arr[i]) + ", ";
