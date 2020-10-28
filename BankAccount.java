@@ -9,4 +9,10 @@ public class BankAccount {
     password = createPassword;
     balance = 0.0;
   }
+  public double getBalance() {return balance;}
+
+  public int getAccountID() {return accountID;}
+
+  public void setPassword(String newPass) {password = newPass;}
+
 }
