@@ -15,4 +15,5 @@ public class BankAccount {
 
   public void setPassword(String newPass) {password = newPass;}
 
+  public String toString() {return accountID + "\t" + balance;}
 }
