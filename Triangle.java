@@ -22,4 +22,13 @@ public class Triangle{
     return Math.sqrt(s * (s - v1.distanceTo(v2)) *
     (s - v2.distanceTo(v3)) * (s - v3.distanceTo(v1)));
   }
+
+  public String classify(){
+    if (v1.distanceTo(v2) == v2.distanceTo(v3)
+    && v1.distanceTo(v2) == v3.distanceTo(v1)) return "Equilateral";
+    else if (v1.distanceTo(v2) != v2.distanceTo(v3)
+    && v1.distanceTo(v2) != v3.distanceTo(v1)
+    && v3.distanceTo(v2) != v1.distanceTo(v1)) return "Scalene";
+    else return "Isosceles";
+  }
 }
