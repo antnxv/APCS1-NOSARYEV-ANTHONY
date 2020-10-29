@@ -31,4 +31,11 @@ public class Triangle{
     && v3.distanceTo(v2) != v1.distanceTo(v1)) return "Scalene";
     else return "Isosceles";
   }
+
+  public String toString(){
+    String s1 =  "v1(" + v1.getX() + ", " + v1.getY() + ") ";
+    String s2 =  "v2(" + v2.getX() + ", " + v2.getY() + ") ";
+    String s3 =  "v3(" + v3.getX() + ", " + v3.getY() + ")";
+    return s1 + s2 + s3;
+  }
 }
