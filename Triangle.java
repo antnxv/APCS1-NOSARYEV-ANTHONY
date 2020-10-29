@@ -38,4 +38,10 @@ public class Triangle{
     String s3 =  "v3(" + v3.getX() + ", " + v3.getY() + ")";
     return s1 + s2 + s3;
   }
+
+  public void setVertex(int index, Point newP){
+    if (index == 0) v1 = newP;
+    else if (index == 1) v2 = newP;
+    else v3 = newP;
+  }
 }
