@@ -27,8 +27,8 @@ public class Triangle{
     if (v1.distanceTo(v2) == v2.distanceTo(v3)
     && v1.distanceTo(v2) == v3.distanceTo(v1)) return "Equilateral";
     else if (v1.distanceTo(v2) != v2.distanceTo(v3)
-    && v1.distanceTo(v2) != v3.distanceTo(v1)
-    && v3.distanceTo(v2) != v1.distanceTo(v1)) return "Scalene";
+    && v2.distanceTo(v3) != v3.distanceTo(v1)
+    && v3.distanceTo(v1) != v1.distanceTo(v2)) return "Scalene";
     else return "Isosceles";
   }
 
@@ -43,5 +43,22 @@ public class Triangle{
     if (index == 0) v1 = newP;
     else if (index == 1) v2 = newP;
     else v3 = newP;
+  }
+
+  public static void main(String[] args) {
+    Point a = new Point(0.0, 0.0);
+    Point b = new Point(3.0, 0.0);
+    Point c = new Point(3.0, 4.0);
+    Triangle m = new Triangle(a, b, c);
+    System.out.println(m.getPerimeter());
+    System.out.println(m.getArea());
+    System.out.println(m.classify());
+    System.out.println(m);
+    Point d = new Point(3.0, 1.0);
+    m.setVertex(1, d);
+    System.out.println(m.getPerimeter());
+    System.out.println(m.getArea());
+    System.out.println(m.classify());
+    System.out.println(m);
   }
 }
