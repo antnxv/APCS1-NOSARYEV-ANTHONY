@@ -44,21 +44,4 @@ public class Triangle{
     else if (index == 1) v2 = newP;
     else v3 = newP;
   }
-
-  public static void main(String[] args) {
-    Point a = new Point(0.0, 0.0);
-    Point b = new Point(3.0, 0.0);
-    Point c = new Point(3.0, 4.0);
-    Triangle m = new Triangle(a, b, c);
-    System.out.println(m.getPerimeter());
-    System.out.println(m.getArea());
-    System.out.println(m.classify());
-    System.out.println(m);
-    Point d = new Point(3.0, 1.0);
-    m.setVertex(1, d);
-    System.out.println(m.getPerimeter());
-    System.out.println(m.getArea());
-    System.out.println(m.classify());
-    System.out.println(m);
-  }
 }
