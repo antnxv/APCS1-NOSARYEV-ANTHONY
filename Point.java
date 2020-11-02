@@ -28,7 +28,7 @@ public class Point{
   }
 
   public boolean equals(Point other){
-    if (distanceTo(other) == 0.0) return true;
+    if (other != null && distanceTo(other) == 0.0) return true;
     else return false;
   }
 }
