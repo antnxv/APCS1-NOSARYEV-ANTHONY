@@ -11,8 +11,9 @@ public class SuperArray{
     return size;
   }
 
-  public void add(String element){
+  public boolean add(String element){
     data[size] = element;
     size ++;
+    return data[size].equals(element);
   }
 }
