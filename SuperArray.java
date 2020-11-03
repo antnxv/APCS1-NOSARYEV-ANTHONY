@@ -14,10 +14,16 @@ public class SuperArray{
   public boolean add(String element){
     data[size] = element;
     size ++;
-    return data[size].equals(element);
+    return data[size - 1].equals(element);
   }
 
   public String get(int index){
-    return data[size];
+    return data[index];
+  }
+
+  public String set(int index, String element){
+    String old = data[index];
+    data[index] = element;
+    return old;
   }
 }
