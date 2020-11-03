@@ -16,4 +16,8 @@ public class SuperArray{
     size ++;
     return data[size].equals(element);
   }
+
+  public String get(int index){
+    return data[size];
+  }
 }
