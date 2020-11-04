@@ -23,6 +23,25 @@ public class SuperArray{
     return data[size - 1].equals(element);
   }
 
+  public void add(int index, String element){
+    if (size == data.length) resize();
+    size ++;
+    for (int i = size; i > index; i --){
+      data[i] = data[i - 1];
+    }
+    data[index] = element;
+  }
+
+  public String remove(int index){
+    String c = data[index];
+    for (int i = index; i < size - 1; i ++){
+      data[i] = data[i + 1];
+    }
+    size --;
+    data[size] = null;
+    return c;
+  }
+
   public String get(int index){
     return data[index];
   }
@@ -64,5 +83,20 @@ public class SuperArray{
       if (data[i] == s) return true;
     }
     return false;
+  }
+
+  public int indexOf(String s){
+    for (int i = 0; i < size; i ++){
+      if (data[i] == s) return i;
+    }
+    return -1;
+  }
+
+  public String[] toArray(){
+    String[] arr = new String[size];
+    for (int i = 0; i < size; i ++){
+      arr[i] = data[i];
+    }
+    return arr;
   }
 }
