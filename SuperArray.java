@@ -16,6 +16,14 @@ public class SuperArray{
     return size;
   }
 
+  private void resize(){
+    String[] newData = new String[1 + data.length * 2];
+    for (int i = 0; i < data.length; i ++){
+      newData[i] = data[i];
+    }
+    data = newData;
+  }
+
   public boolean add(String element){
     if (size == data.length) resize();
     data[size] = element;
@@ -42,40 +50,13 @@ public class SuperArray{
     return c;
   }
 
-  public String get(int index){
-    return data[index];
-  }
-
-  public String set(int index, String element){
-    String old = data[index];
-    data[index] = element;
-    return old;
-  }
-
-  private void resize(){
-    String[] newData = new String[1 + data.length * 2];
-    for (int i = 0; i < data.length; i ++){
-      newData[i] = data[i];
-    }
-    data = newData;
-  }
-
-  public boolean isEmpty(){
-    return size == 0;
-  }
-
   public void clear(){
     data = new String[data.length];
     size = 0;
   }
 
-  public String toString(){
-    String str = "[";
-    for (int i = 0; i < size; i ++){
-      str += data[i] + ", ";
-    }
-    if (str.length() == 1) return "[]";
-    else return str.substring(0, str.length() - 2) + "]";
+  public boolean isEmpty(){
+    return size == 0;
   }
 
   public boolean contains(String s){
@@ -90,6 +71,25 @@ public class SuperArray{
       if (data[i] == s) return i;
     }
     return -1;
+  }
+
+  public String get(int index){
+    return data[index];
+  }
+
+  public String set(int index, String element){
+    String old = data[index];
+    data[index] = element;
+    return old;
+  }
+
+  public String toString(){
+    String str = "[";
+    for (int i = 0; i < size; i ++){
+      str += data[i] + ", ";
+    }
+    if (str.length() == 1) return "[]";
+    else return str.substring(0, str.length() - 2) + "]";
   }
 
   public String[] toArray(){
