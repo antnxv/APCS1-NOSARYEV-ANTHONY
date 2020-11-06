@@ -61,14 +61,14 @@ public class SuperArray{
 
   public boolean contains(String s){
     for (int i = 0; i < size; i ++){
-      if (data[i] == s) return true;
+      if (data[i].equals(s)) return true;
     }
     return false;
   }
 
   public int indexOf(String s){
     for (int i = 0; i < size; i ++){
-      if (data[i] == s) return i;
+      if (data[i].equals(s)) return i;
     }
     return -1;
   }
