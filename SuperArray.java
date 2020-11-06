@@ -12,6 +12,16 @@ public class SuperArray{
     size = 0;
   }
 
+  public boolean equals(SuperArray other){
+    if (this.size == other.size){
+      for (int i = 0; i < size; i ++){
+        if (data[i] != other.data[i]) return false;
+      }
+      return true;
+    }
+    else return false;
+  }
+
   public int size(){
     return size;
   }
@@ -71,6 +81,14 @@ public class SuperArray{
       if (data[i].equals(s)) return i;
     }
     return -1;
+  }
+
+  public int lastIndexOf(String s){
+    int lindex = -1;
+    for (int i = 0; i < size; i ++){
+      if (data[i].equals(s)) lindex = i;
+    }
+    return lindex;
   }
 
   public String get(int index){
