@@ -101,6 +101,9 @@ public class SuperArray{
   }
 
   public String set(int index, String element){
+    if (index < 0) throw new IndexOutOfBoundsException("Index ("+index+") cannot be < 0");
+    else if (index >= size) throw new IndexOutOfBoundsException("Index ("
+    +index+") cannot be >= size ("+size+")");
     String old = data[index];
     data[index] = element;
     return old;
