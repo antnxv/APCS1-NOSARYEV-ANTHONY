@@ -44,6 +44,9 @@ public class SuperArray{
   }
 
   public void add(int index, String element){
+    if (index < 0) throw new IndexOutOfBoundsException("Index ("+index+") cannot be < 0");
+    else if (index > size) throw new IndexOutOfBoundsException("Index ("
+    +index+") cannot be > size ("+size+")");
     if (size == data.length) resize();
     size ++;
     for (int i = size; i > index; i --){
