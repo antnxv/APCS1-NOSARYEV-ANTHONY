@@ -22,6 +22,7 @@ public class RationalNumber extends RealNumber
       numerator = nume;
       denominator = deno;
     }
+    reduce();
   }
 
   public double getValue(){
@@ -37,6 +38,7 @@ public class RationalNumber extends RealNumber
   /**
   *@return the denominator
   */
+
   public int getDenominator(){
     return denominator;
   }
@@ -44,6 +46,7 @@ public class RationalNumber extends RealNumber
   *@return a new RationalNumber that has the same numerator
   *and denominator as this RationalNumber but reversed.
   */
+
   public RationalNumber reciprocal(){
     RationalNumber recip = new RationalNumber(this.denominator, this.numerator);
     return recip;
@@ -51,10 +54,10 @@ public class RationalNumber extends RealNumber
   /**
   *@return true when the RationalNumbers have the same numerators and denominators, false otherwise.
   */
+
   public boolean equals(RationalNumber other){
     return (this.numerator == other.numerator && this.denominator == other.denominator);
   }
-
 
   /**
   *@return the value expressed as "3/4" or "8/3"
@@ -69,9 +72,17 @@ public class RationalNumber extends RealNumber
   *@return the value of the GCD
   */
   private static int gcd(int a, int b){
-    /*use euclids method or a better one*/
-    http://sites.math.rutgers.edu/~greenfie/gs2004/euclid.html
-    return 0;
+    if (a < b){
+      int temp = a;
+      a = b;
+      b = temp;
+    }
+    int r = a - (a/b) * b;
+    while (r != 0){
+      a = b; b = r;
+      r = a - (a/b) * b;
+    }
+    return b;
   }
 
   /**
@@ -80,7 +91,9 @@ public class RationalNumber extends RealNumber
   *reduced after construction.
   */
   private void reduce(){
-
+    int gcd = gcd(numerator, denominator);
+    numerator /= gcd;
+    denominator /= gcd;
   }
   /******************Operations Return a new RationalNumber!!!!****************/
   /**
