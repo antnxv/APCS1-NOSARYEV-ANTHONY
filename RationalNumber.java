@@ -72,6 +72,7 @@ public class RationalNumber extends RealNumber
   *@return the value of the GCD
   */
   private static int gcd(int a, int b){
+    if (a == 0) return b;
     if (a < b){
       int temp = a;
       a = b;
@@ -95,12 +96,16 @@ public class RationalNumber extends RealNumber
     numerator /= gcd;
     denominator /= gcd;
   }
+
   /******************Operations Return a new RationalNumber!!!!****************/
+
   /**
   *Return a new RationalNumber that is the product of this and the other
   */
   public RationalNumber multiply(RationalNumber other){
-    return null;
+    RationalNumber product = new RationalNumber(
+      this.numerator * other.numerator, this.denominator * other.denominator);
+    return product;
   }
 
   /**
