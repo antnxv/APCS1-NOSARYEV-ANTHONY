@@ -49,7 +49,7 @@ public class SuperArray{
     +index+") cannot be > size ("+size+")");
     if (size == data.length) resize();
     size ++;
-    for (int i = size; i > index; i --){
+    for (int i = size - 1; i > index; i --){
       data[i] = data[i - 1];
     }
     data[index] = element;
