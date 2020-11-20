@@ -46,8 +46,8 @@ public class RealNumber{
   *this divided by the other
   */
   public RealNumber divide(RealNumber other){
-    RealNumber product = new RealNumber(this.getValue() / other.getValue());
-    return product;
+    RealNumber quotient = new RealNumber(this.getValue() / other.getValue());
+    return quotient;
   }
 
   /*
@@ -55,6 +55,7 @@ public class RealNumber{
   *this minus the other
   */
   public RealNumber subtract(RealNumber other){
-    return null;
+    RealNumber difference = new RealNumber(this.getValue() - other.getValue());
+    return difference;
   }
 }
