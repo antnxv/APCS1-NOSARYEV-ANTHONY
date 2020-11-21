@@ -16,9 +16,10 @@ public class RealNumber{
   /*
   *Return true when the values are within 0.001% of eachother.
   *Special case: if one is exactly zero, the other must be exactly zero.
+  *Modified to work with RationalNumber types.
   */
   public boolean equals(RealNumber other){
-    return (Math.abs(this.value - other.value) <= 0.00001 * this.value);
+    return (Math.abs(this.getValue() - other.getValue()) <= 0.00001 * this.getValue());
   }
 
   /*
