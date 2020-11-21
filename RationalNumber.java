@@ -83,7 +83,7 @@ public class RationalNumber extends RealNumber
       a = b; b = r;
       r = a - (a/b) * b;
     }
-    return b;
+    return Math.abs(b);
   }
 
   /**
@@ -130,6 +130,9 @@ public class RationalNumber extends RealNumber
   *Return a new RationalNumber that this minus the other
   */
   public RationalNumber subtract(RationalNumber other){
-    return null;
+    RationalNumber difference = new RationalNumber(
+      this.numerator * other.denominator - other.numerator * this.denominator,
+      this.denominator * other.denominator);
+    return difference;
   }
 }
