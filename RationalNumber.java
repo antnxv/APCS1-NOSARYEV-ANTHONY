@@ -1,15 +1,11 @@
-public class RationalNumber extends RealNumber
-{
+public class RationalNumber extends Number{
   private int numerator, denominator;
 
-  /**Initialize the RationalNumber with the provided values
-  *  if the denominator is 0, make the fraction 0/1 instead
+  /**Initialise the RationalNumber with the provided values
+  *  if the denominator is 0, make the fraction 0/1
   *  If the denominator is negative, negate both numerator and denominator
-  *@param nume the numerator
-  *@param deno the denominator
-  */
+  **/
   public RationalNumber(int nume, int deno){
-    super(0.0);//this value is ignored!
     if (deno == 0){
       numerator = 0;
       denominator = 1;
@@ -29,49 +25,34 @@ public class RationalNumber extends RealNumber
     return (double) numerator / denominator;
   }
 
-  /**
-  *@return the numerator
-  */
+  //Return the numerator
   public int getNumerator(){
     return numerator;
   }
-  /**
-  *@return the denominator
-  */
 
+  //Return the denominator
   public int getDenominator(){
     return denominator;
   }
-  /**
-  *@return a new RationalNumber that has the same numerator
-  *and denominator as this RationalNumber but reversed.
-  */
 
+  //Return the reciprocal
   public RationalNumber reciprocal(){
     RationalNumber recip = new RationalNumber(this.denominator, this.numerator);
     return recip;
   }
-  /**
-  *@return true when the RationalNumbers have the same numerators and denominators, false otherwise.
-  */
 
+  //Return true when the RationalNumbers have the same numerators and denominators, false otherwise.
   public boolean equals(RationalNumber other){
-    return (this.numerator == other.numerator && this.denominator == other.denominator);
+    return (this.toString().equals(other.toString()));
   }
 
-  /**
-  *@return the value expressed as "3/4" or "8/3"
-  */
+  //Return the value expressed as "3/4" or "8/3"
   public String toString(){
     if (numerator == 0 || denominator == 1) return "" + numerator;
     else return numerator + "/" + denominator;
   }
 
-  /**Calculate the GCD of two integers.
-  *@param a the first integers
-  *@param b the second integer
-  *@return the value of the GCD
-  */
+  //Calculate the GCD of two integers.
   private static int gcd(int a, int b){
     if (a == 0) return b;
     if (a < b){
@@ -87,49 +68,36 @@ public class RationalNumber extends RealNumber
     return Math.abs(b);
   }
 
-  /**
-  *Divide the numerator and denominator by the GCD
-  *This must be used to maintain that all RationalNumbers are
-  *reduced after construction.
-  */
+  //Divide the numerator and denominator by the GCD upon construction
   private void reduce(){
     int gcd = gcd(numerator, denominator);
     numerator /= gcd;
     denominator /= gcd;
   }
 
-  /******************Operations Return a new RationalNumber!!!!****************/
-
-  /**
-  *Return a new RationalNumber that is the product of this and the other
-  */
+  //Return a new RationalNumber equal to this times the other
   public RationalNumber multiply(RationalNumber other){
     RationalNumber product = new RationalNumber(
       this.numerator * other.numerator, this.denominator * other.denominator);
     return product;
   }
 
-  /**
-  *Return a new RationalNumber that is the this divided by the other
-  */
+  //Return a new RationalNumber equal to this divided by the other
   public RationalNumber divide(RationalNumber other){
     RationalNumber quotient = new RationalNumber(
       this.numerator * other.denominator, this.denominator * other.numerator);
     return quotient;
   }
 
-  /**
-  *Return a new RationalNumber that is the sum of this and the other
-  */
+  //Return a new RationalNumber equal to this plus the other
   public RationalNumber add(RationalNumber other){
     RationalNumber sum = new RationalNumber(
       this.numerator * other.denominator + other.numerator * this.denominator,
       this.denominator * other.denominator);
     return sum;
   }
-  /**
-  *Return a new RationalNumber that this minus the other
-  */
+
+  //Return a new RationalNumber equal to this minus the other
   public RationalNumber subtract(RationalNumber other){
     RationalNumber difference = new RationalNumber(
       this.numerator * other.denominator - other.numerator * this.denominator,
