@@ -34,6 +34,7 @@ public class ArraySequence implements IntegerSequence {
   public boolean hasNext(){
     return currentIndex < data.length;
   }
+  
   public int next(){
     if (!hasNext()){
       throw new NoSuchElementException();
