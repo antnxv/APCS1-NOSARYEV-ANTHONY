@@ -14,7 +14,7 @@ public class ArraySequence implements IntegerSequence {
   }
 
   public void reset(){
-
+    currentIndex = 0;
   }
 
   public int length(){
