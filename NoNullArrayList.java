@@ -16,4 +16,12 @@ public class NoNullArrayList<T> extends ArrayList<T>{
     if (value == null) throw new IllegalArgumentException();
     else return super.set(index, value);
   }
+
+  public NoNullArrayList(){
+    super();
+  }
+
+  public NoNullArrayList(int initialCapacity){
+    super(initialCapacity);
+  }
 }
