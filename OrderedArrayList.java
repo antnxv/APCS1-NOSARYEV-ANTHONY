@@ -21,11 +21,11 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
   }
 
   private int newIndex(T value){
+    int c = 0;
     for (int i = 0; i < size(); i ++){
-      if (get(i).compareTo(value) > 0) i ++;
-      else return i;
+      if (get(i).compareTo(value) <= 0) c ++;
     }
-    return size();
+    return c;
   }
 
   public OrderedArrayList(){
