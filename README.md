@@ -10,3 +10,5 @@ Then Jonah Keller asked to be reminded of what the generics meant and Zhao Yu Li
 Then Jonah Keller asked how to override and Jonathan Wu explained that overriding meant making new methods with names identical to already pre-established names. We came back to this a little bit later and I tried to reiterate to Jonah Keller how to override.
 
 Zhao Yu Lin then asked if we had to make our own ArrayList file and Jonathan Wu and I both agreed that this would be a strange implicit task.
+
+I and another person both got a warning on our headers from linter about NoNullArrayList having no definition of serialVersionUID, but we figured this was probably just linter freaking out. 
