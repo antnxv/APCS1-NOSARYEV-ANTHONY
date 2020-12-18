@@ -32,4 +32,19 @@ public class Sorts{
       data[mindex] = temp;
     }
   }
+
+  public static void insertionSort(int[] data){
+    int temp;
+    for (int i = 1; i < data.length; i ++){
+      for (int j = 0; j < i; j ++){
+        if (data[i] < data[j]){
+          temp = data[i];
+          for (int k = i-1; k >= j; k --){
+            data[k+1] = data[k];
+          }
+          data[j] = temp;
+        }
+      }
+    }
+  }
 }
