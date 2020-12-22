@@ -3,6 +3,7 @@ public class Sorts{
   *@postcondition The array will be modified such that the elements will be in increasing order.
   *@param data  the elements to be sorted.
   */
+
   public static void bubbleSort(int[] data){
     int temp;
     int right;
@@ -15,7 +16,7 @@ public class Sorts{
           data[j] = temp;
         }else right ++;
       }
-      if (right == data.length) break;
+      if (right == data.length - 1) break;
     }
   }
 
@@ -36,13 +37,12 @@ public class Sorts{
   public static void insertionSort(int[] data){
     int temp;
     for (int i = 1; i < data.length; i ++){
-      for (int j = 0; j < i; j ++){
-        if (data[i] < data[j]){
-          temp = data[i];
-          for (int k = i-1; k >= j; k --){
-            data[k+1] = data[k];
-          }
+      temp = data[i];
+      for (int j = i-1; j >= 0; j --){
+        if (temp < data[j]) data[j+1] = data[j];
+        else{
           data[j] = temp;
+          break;
         }
       }
     }
