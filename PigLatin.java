@@ -1,22 +1,16 @@
 import java.util.*;
 public class PigLatin{
-  public static void main( String[]args ){
-      String oink = "";
-      Scanner m = new Scanner( System.in );
-      while (m.hasNextLine()){
-        Scanner n = new Scanner(m.nextLine());
-        while (n.hasNext()){
-          String c = n.next();
-          oink += c + " ";
-        }
-        if (oink.charAt(oink.length()-1) == ' '){
-          oink = oink.substring(0, oink.length()-1);
-        }
-        oink += "\n";
+  public static void main(String[]args){
+    System.out.println(pigLatinSimple("insert testing word"));
+  }
+
+  public static String pigLatinSimple(String s){
+    char[] vowels = {'a', 'e', 'i', 'o', 'u'};
+    for (char i: vowels){
+      if (s.charAt(0) == i){
+        return s + "hay";
       }
-      if (oink.charAt(oink.length()-1) == '\n'){
-        oink = oink.substring(0, oink.length()-1);
-      }
-      System.out.println(oink);
+    }
+    return s.substring(1) + s.substring(0, 1) + "ay";
   }
 }
