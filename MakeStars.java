@@ -12,8 +12,14 @@ public class MakeStars{
           }
           stars += " ";
         }
-        stars = stars.substring(0, stars.length()-1) + "\n";
+        if (stars.charAt(stars.length()-1) == ' '){
+          stars = stars.substring(0, stars.length()-1);
+        }
+        stars += "\n";
       }
-      System.out.println(stars.substring(0, stars.length()-1));
+      if (stars.charAt(stars.length()-1) == '\n'){
+        stars = stars.substring(0, stars.length()-1);
+      }
+      System.out.println(stars);
   }
 }
