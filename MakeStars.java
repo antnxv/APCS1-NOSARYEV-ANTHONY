@@ -1,6 +1,6 @@
 import java.util.*;
 public class MakeStars{
-  public static void main( String[]args ){
+  public static void main(String[]args){
       String stars = "";
       Scanner m = new Scanner( System.in );
       while (m.hasNextLine()){
@@ -12,12 +12,12 @@ public class MakeStars{
           }
           stars += " ";
         }
-        if (stars.charAt(stars.length()-1) == ' '){
+        if (stars.length() > 0 && stars.charAt(stars.length()-1) == ' '){
           stars = stars.substring(0, stars.length()-1);
         }
         stars += "\n";
       }
-      if (stars.charAt(stars.length()-1) == '\n'){
+      if (stars.length() > 0 && stars.charAt(stars.length()-1) == '\n'){
         stars = stars.substring(0, stars.length()-1);
       }
       System.out.println(stars);
