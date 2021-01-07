@@ -4,6 +4,8 @@ public class Node{
 
   public Node(String value){
     data = value;
+    next = null;
+    prev = null;
   }
 
   public String getData(){
@@ -29,5 +31,4 @@ public class Node{
   public void setPrev(Node nde){
     prev = nde;
   }
- //write get/set methods for all three instance variables.
 }
