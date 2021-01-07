@@ -27,14 +27,19 @@ public class MyLinkedList{
     getNodeLeft(index).setPrev(nde);
     getNodeRight(index).setPrev(getNodeRight(index-1));
     getNodeLeft(index).setNext(getNodeLeft(index+1));
+    size ++;
   }
 
-  public String get(int index){
-    return getNode(index).getData();
+  public String get(int index){ // Speeeeed
+    if (index > size/2) return getNodeLeft(index).getData();
+    else return getNodeRight(index).getData();
   }
 
   public String set(int index, String value){
-    return "placeholder, tired of seeing errors";
+    String oldvalue = get(index);
+    if (index > size/2) getNodeLeft(index).setData(value);
+    else getNodeRight(index).setData(value);
+    return oldvalue;
   }
 
   public String toString(){
