@@ -20,11 +20,15 @@ public class MyLinkedList{
   }
 
   public void add(int index, String value){
+    Node nde = new Node(value);
+    if (index == size) add(value);
+    for (int i = 0; i < index; i ++){
 
+    }
   }
 
   public String get(int index){
-    return "placeholder, tired of seeing errors";
+    return getNode(index).getData();
   }
 
   public String set(int index, String value){
@@ -34,5 +38,13 @@ public class MyLinkedList{
   public String toString(){
     return "placeholder, tired of seeing errors";
   }
-  //Any helper method that returns a Node object MUST BE PRIVATE!
+
+  // Helper:
+  private Node getNode(int index){
+    Node currnde = start;
+    for (int i = 0; i < index; i ++){
+      currnde = currnde.getNext();
+    }
+    return currnde;
+  }
 }
