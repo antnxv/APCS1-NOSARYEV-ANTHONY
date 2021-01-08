@@ -10,7 +10,7 @@ public class MyLinkedList{
     return size;
   }
 
-  public String get(int index){ // Speeeeed
+  public String get(int index){
     return getNode(index).getData();
   }
 
@@ -34,16 +34,21 @@ public class MyLinkedList{
   }
 
   public void add(int index, String value){
-    if (index == size) add(value);
-    Node nde = new Node(value);
-    nde.setNext(getNode(index));
-    getNode(index).setPrev(nde);
-    if (index != 0){
-      nde.setPrev(getNode(index-1));
-      getNode(index-1).setNext(nde);
+    if (index > size) throw new IndexOutOfBoundsException("index must be less or equal to current size; size == "+size);
+    if (index < 0) throw new IndexOutOfBoundsException("index must be greater than 0");
+    if (index == size){
+      add(value);
+    }else{
+      Node nde = new Node(value);
+      nde.setNext(getNode(index));
+      getNode(index).setPrev(nde);
+      if (index != 0){
+        nde.setPrev(getNode(index-1));
+        getNode(index-1).setNext(nde);
+      }
+      size ++;
+      if (index == 0) start = nde;
     }
-    size ++;
-    if (index == 0) start = nde;
   }
 
   public void extend(MyLinkedList other){
@@ -64,6 +69,8 @@ public class MyLinkedList{
   }
 
   public String remove(int index){
+    if (index >= size) throw new IndexOutOfBoundsException("index must be less than current size; size == "+size);
+    if (index < 0) throw new IndexOutOfBoundsException("index must be greater than 0");
     Node nde = getNode(index);
     if (index == 0 && index == size-1){
       start = null;
@@ -109,6 +116,8 @@ public class MyLinkedList{
 
   // --- Helpers ------------------------------------------------------
   private Node getNode(int index){
+    if (index >= size) throw new IndexOutOfBoundsException("index must be less than size; size == "+size);
+    if (index < 0) throw new IndexOutOfBoundsException("index must be greater than 0");
     Node currnde = start;
     for (int i = 0; i < index; i ++){
       currnde = currnde.getNext();
