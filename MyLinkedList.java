@@ -10,6 +10,16 @@ public class MyLinkedList{
     return size;
   }
 
+  public String get(int index){ // Speeeeed
+    return getNode(index).getData();
+  }
+
+  public String set(int index, String value){
+    String oldvalue = get(index);
+    getNode(index).setData(value);
+    return oldvalue;
+  }
+
   public boolean add(String value){
     Node nde = new Node(value);
     if (size != 0){
@@ -36,6 +46,21 @@ public class MyLinkedList{
     if (index == 0) start = nde;
   }
 
+  public void extend(MyLinkedList other){
+    if (this.size > 0 && other.size > 0){
+      this.end.setNext(other.start);
+      other.start.setPrev(this.end);
+    }
+    else if(other.size > 0){
+      this.start.setData(other.start.getData());
+      this.end.setData(other.end.getData());
+    }
+    other.start = null;
+    other.end = null;
+    other.size = 0;
+
+  }
+
   public String remove(int index){
     Node nde = getNode(index);
     if (index == 0 && index == size-1){
@@ -56,16 +81,6 @@ public class MyLinkedList{
     }
     nde.setPrev(null); nde.setNext(null);
     return nde.getData();
-  }
-
-  public String get(int index){ // Speeeeed
-    return getNode(index).getData();
-  }
-
-  public String set(int index, String value){
-    String oldvalue = get(index);
-    getNode(index).setData(value);
-    return oldvalue;
   }
 
   public String toString(){
