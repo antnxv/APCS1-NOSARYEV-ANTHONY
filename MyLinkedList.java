@@ -15,9 +15,9 @@ public class MyLinkedList{
   }
 
   public String set(int index, String value){
-    String oldvalue = get(index);
-    getNode(index).setData(value);
-    return oldvalue;
+    Node oldnde = getNode(index);
+    oldnde.setData(value);
+    return oldnde.getData();
   }
 
   public boolean add(String value){
@@ -50,11 +50,13 @@ public class MyLinkedList{
     if (this.size > 0 && other.size > 0){
       this.end.setNext(other.start);
       other.start.setPrev(this.end);
+      this.end = other.end;
     }
     else if(other.size > 0){
       this.start.setData(other.start.getData());
       this.end.setData(other.end.getData());
     }
+    this.size += other.size;
     other.start = null;
     other.end = null;
     other.size = 0;
@@ -85,9 +87,22 @@ public class MyLinkedList{
 
   public String toString(){
     if (size == 0) return "{}";
-    String str = "{";
-    for (int i = 0; i < size; i ++){
-      str += get(i) + ", ";
+    Node currnde = start;
+    String str = "{"+currnde.getData()+", ";
+    for (int i = 0; i < size-1; i ++){
+      currnde = currnde.getNext();
+      str += currnde.getData() + ", ";
+    }
+    return str.substring(0, str.length()-2) + "}";
+  }
+
+  public String toStringReversed(){
+    if (size == 0) return "{}";
+    Node currnde = end;
+    String str = "{"+currnde.getData()+", ";
+    for (int i = size-2; i > -1; i --){
+      currnde = currnde.getPrev();
+      str += currnde.getData() + ", ";
     }
     return str.substring(0, str.length()-2) + "}";
   }
