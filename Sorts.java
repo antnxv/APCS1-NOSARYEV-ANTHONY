@@ -39,9 +39,11 @@ public class Sorts{
     for (int i = 1; i < data.length; i ++){
       temp = data[i];
       for (int j = i-1; j >= 0; j --){
-        if (temp < data[j]) data[j+1] = data[j];
-        else{
-          data[j] = temp;
+        if (temp < data[j]){
+          data[j+1] = data[j];
+          if (j == 0) data[j] = temp;
+        }else{
+          data[j+1] = temp;
           break;
         }
       }
