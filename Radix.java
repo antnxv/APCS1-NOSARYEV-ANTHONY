@@ -9,4 +9,11 @@ public class Radix{
     String str = Integer.toString(Math.abs(n));
     return str.length();
   }
+
+  public static void merge(MyLinkedList original, MyLinkedList[] buckets){
+    for (MyLinkedList i: buckets){
+      original.extend(i);
+    }
+  }
+
 }
