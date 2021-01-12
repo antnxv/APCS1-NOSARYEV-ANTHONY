@@ -4,8 +4,7 @@ public class Radix{
   }
 
   public static int length(int n){
-    String str = Integer.toString(Math.abs(n));
-    return str.length();
+    return (int) Math.log10(Math.abs(n)) + 1;
   }
 
   public static void merge(MyLinkedList original, MyLinkedList[] buckets){
@@ -15,11 +14,13 @@ public class Radix{
   }
 
   public static void main(String[] args){
-    System.out.println(nth(-295192, 5));
-    System.out.println(nth(-295192, 4));
-    System.out.println(nth(-295192, 3));
-    System.out.println(nth(-295192, 2));
-    System.out.println(nth(-295192, 1));
-    System.out.println(nth(-295192, 0));
+    int n = -295192;
+    System.out.println(nth(n, 5));
+    System.out.println(nth(n, 4));
+    System.out.println(nth(n, 3));
+    System.out.println(nth(n, 2));
+    System.out.println(nth(n, 1));
+    System.out.println(nth(n, 0));
+    System.out.println("\n Length of "+n+": "+length(n));
   }
 }
