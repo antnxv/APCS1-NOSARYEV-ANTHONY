@@ -1,6 +1,7 @@
 public class Radix{
   public static int nth(int n, int col){
     String str = Integer.toString(Math.abs(n));
+    if (col >= str.length()) return 0;
     int index = str.length()-col-1;
     return Integer.parseInt(str.substring(index, index+1));
   }
@@ -15,5 +16,4 @@ public class Radix{
       original.extend(i);
     }
   }
-
 }
