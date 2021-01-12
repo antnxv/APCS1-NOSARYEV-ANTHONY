@@ -4,4 +4,9 @@ public class Radix{
     int index = str.length()-col-1;
     return Integer.parseInt(str.substring(index, index+1));
   }
+
+  public static int length(int n){
+    String str = Integer.toString(Math.abs(n));
+    return str.length();
+  }
 }
