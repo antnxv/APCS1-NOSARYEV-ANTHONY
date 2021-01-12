@@ -1,9 +1,6 @@
 public class Radix{
   public static int nth(int n, int col){
-    String str = Integer.toString(Math.abs(n));
-    if (col >= str.length()) return 0;
-    int index = str.length()-col-1;
-    return Integer.parseInt(str.substring(index, index+1));
+    return Math.abs((n / (int) Math.pow(10, col)) % 10);
   }
 
   public static int length(int n){
@@ -15,5 +12,14 @@ public class Radix{
     for (MyLinkedList i: buckets){
       original.extend(i);
     }
+  }
+
+  public static void main(String[] args){
+    System.out.println(nth(-295192, 5));
+    System.out.println(nth(-295192, 4));
+    System.out.println(nth(-295192, 3));
+    System.out.println(nth(-295192, 2));
+    System.out.println(nth(-295192, 1));
+    System.out.println(nth(-295192, 0));
   }
 }
