@@ -34,12 +34,4 @@ public class Radix{
       col ++;
     }
   }
-
-  public static void main(String[] args) {
-    SortableLinkedList storage = new SortableLinkedList();
-    storage.add(0); storage.add(1); storage.add(2); storage.add(-3);
-    storage.add(631589); storage.add(1346); storage.add(12845); storage.add(825);
-    System.out.println(storage.toString());
-    radixSortSimple(storage);
-  }
 }
