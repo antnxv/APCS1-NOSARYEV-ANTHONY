@@ -15,9 +15,9 @@ public class MyLinkedList{
   }
 
   public String set(int index, String value){
-    Node oldnde = getNode(index);
-    oldnde.setData(value);
-    return oldnde.getData();
+    String oldnde = getNode(index).getData();
+    getNode(index).setData(value);
+    return oldnde;
   }
 
   public boolean add(String value){
@@ -93,25 +93,25 @@ public class MyLinkedList{
   }
 
   public String toString(){
-    if (size == 0) return "{}";
+    if (size == 0) return "[]";
     Node currnde = start;
-    String str = "{"+currnde.getData()+", ";
+    String str = "["+currnde.getData()+", ";
     for (int i = 0; i < size-1; i ++){
       currnde = currnde.getNext();
       str += currnde.getData() + ", ";
     }
-    return str.substring(0, str.length()-2) + "}";
+    return str.substring(0, str.length()-2) + "]";
   }
 
   public String toStringReversed(){
-    if (size == 0) return "{}";
+    if (size == 0) return "[]";
     Node currnde = end;
-    String str = "{"+currnde.getData()+", ";
+    String str = "["+currnde.getData()+", ";
     for (int i = size-2; i > -1; i --){
       currnde = currnde.getPrev();
       str += currnde.getData() + ", ";
     }
-    return str.substring(0, str.length()-2) + "}";
+    return str.substring(0, str.length()-2) + "]";
   }
 
   // --- Helpers ------------------------------------------------------
