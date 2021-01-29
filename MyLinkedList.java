@@ -89,6 +89,7 @@ public class MyLinkedList{
       nde.getPrev().setNext(nde.getNext());
     }
     nde.setPrev(null); nde.setNext(null);
+    size --;
     return nde.getData();
   }
 
